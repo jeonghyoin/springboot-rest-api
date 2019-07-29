@@ -1,0 +1,45 @@
+# spring.profiles.active
+spring:
+  profiles:
+    active: local
+---
+spring:
+  profiles: local
+  devtools:
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
+  datasource:
+    url: >
+      jdbc:mysql://localhost:13306/imdeo?
+      autoReconnect=true&
+      useSSL=false&
+      useUnicode=true&
+      characterEncoding=utf8&
+      serverTimezone=UTC
+    username: root
+    password: imdeo
+  jpa:
+    properties:
+      hibernate.format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+---
+spring:
+  profiles: prod
+  datasource:
+    url: >
+      jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE_NAME}?
+      autoReconnect=true&
+      useSSL=false&
+      useUnicode=true&
+      characterEncoding=utf8&
+      serverTimezone=UTC
+    username: ${MYSQL_DATABASE_USERNAME}
+    password: ${MYSQL_DATABASE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
