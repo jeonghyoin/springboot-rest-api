@@ -6,12 +6,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
+@Table(name="book")
 @Getter
 @Entity
 public class Book{
@@ -21,7 +23,7 @@ public class Book{
     private Integer id;
 
     @Column(name="user_id")
-    private Long userId;
+    private Integer userId;
     
     @Column
     private String title;

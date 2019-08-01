@@ -13,20 +13,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name="user")
 @Getter
 @Entity
 public class User {
     @Id
     @Column
     @GeneratedValue
-    private Long id;
+    private Integer id;
 
     @Column(length=50, nullable= false)
     private String name;
 
     /* 한 명의 유저는 다수의 책을 가질 수 있다. */
+    /* name 속성에는 매핑 할 외래 키 이름 지정 */
     @OneToMany
     @JoinColumn(name="user_id")
     private Collection<Book> book;

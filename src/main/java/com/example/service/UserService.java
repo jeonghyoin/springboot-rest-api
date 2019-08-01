@@ -19,14 +19,14 @@ public class UserService {
     }
 
     public Optional<User> getOneUserById(long id) {
-		return userRepository.findById(id);
-	}
+        return userRepository.findById(id);
+    }
 
-	public void createUser(User user) {
+    public void createUser(User user) {
         userRepository.save(user);
-	}
-
-	public void deleteUserById(long id) {
+    }
+    
+    public void deleteUserById(long id) {
         userRepository.deleteById(id);
-	}
+    }
 }
